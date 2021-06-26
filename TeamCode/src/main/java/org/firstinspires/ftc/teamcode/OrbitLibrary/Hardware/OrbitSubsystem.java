@@ -12,12 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class OrbitSubsystem {
-    BaseState currentState = null;
-    List<OrbitMotor> motors = new ArrayList<OrbitMotor>();
-    List<OrbitServo> servos = new ArrayList<OrbitServo>();
-    List<BaseSensor> sensors = new ArrayList<BaseSensor>();
+    protected List<OrbitMotor> motors = new ArrayList<OrbitMotor>();
+    protected List<OrbitServo> servos = new ArrayList<OrbitServo>();
+    protected List<BaseSensor> sensors = new ArrayList<BaseSensor>();
+
+    protected abstract void setHardware();
 
     public void init(HardwareMap hwMap){
+        setHardware();
         for(OrbitMotor motor: motors){
             motor.init(hwMap);
         }
@@ -29,7 +31,11 @@ public abstract class OrbitSubsystem {
         }
     }
 
-    abstract public void update();
+    public void update(){
+        for (BaseSensor sensor : sensors){
+            sensor.update();
+        }
+    }
 
     abstract public void sendDate(Telemetry telemetry, TelemetryPacket packet);
 }

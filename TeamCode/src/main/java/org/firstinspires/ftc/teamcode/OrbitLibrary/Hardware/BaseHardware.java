@@ -6,11 +6,9 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public abstract class BaseHardware<T> {
 
     protected String name;
-    protected Class<? extends T> type;
 
-    public BaseHardware(String name, Class<? extends T> type){
+    public BaseHardware(String name){
         this.name = name;
-        this.type = type;
     }
 
     abstract public void init(HardwareMap hwMap);

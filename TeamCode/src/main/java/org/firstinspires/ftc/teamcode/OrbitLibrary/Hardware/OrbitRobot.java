@@ -36,5 +36,6 @@ public abstract class OrbitRobot extends OrbitSubsystem {
             system.sendDate(telemetry, packet);
         }
         dash.sendTelemetryPacket(packet);
+        dash.updateConfig();
     }
 }
