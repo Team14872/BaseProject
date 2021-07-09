@@ -7,6 +7,8 @@ public class PIDController {
     public double Kf;
     public double IZone;
 
+    public double target;
+
     public PIDController(final double Kp, final double Ki, final double Kd, final double Kf, final double IZone){
         this.Kp = Kp;
         this.Ki = Ki;
@@ -16,7 +18,7 @@ public class PIDController {
     }
 
     //TODO: write the function
-    public double update(double target){
+    public double update(double current){
         return 0;
     }
 }

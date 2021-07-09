@@ -11,10 +11,10 @@ public class OrbitEncoder extends BaseSensor<DcMotor> {
     private final double ticksPerRev;
 
     private int lastTime = 0;
-    private int lastTicks = 0;
+    private int lastPosition = 0;
     private double lastVelocity = 0;
 
-    protected int ticks;
+    protected int position;
     protected double velocity; //ticks/s
     protected double acceleration; //ticks/s^2
 
@@ -33,12 +33,12 @@ public class OrbitEncoder extends BaseSensor<DcMotor> {
     public void update() {
         int time = Clock.getCurrentTime();
 
-        ticks = motor.getCurrentPosition();
-        velocity =  (ticks - lastTicks) / (time - lastTime);
+        position = motor.getCurrentPosition();
+        velocity =  (position - lastPosition) / (time - lastTime);
         acceleration = (velocity - lastVelocity) / (time - lastTime);
 
         lastTime = time;
-        lastTicks = ticks;
+        lastPosition = position;
         lastVelocity = velocity;
     }
 }
