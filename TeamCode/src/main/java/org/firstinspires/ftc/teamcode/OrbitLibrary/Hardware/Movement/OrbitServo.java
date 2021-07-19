@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.OrbitLibrary.Hardware.BaseHardware;
 
-public class OrbitServo extends BaseHardware<Servo> {
+public class OrbitServo extends BaseHardware{
 
     private Servo servo;
     private final Servo.Direction direction;
