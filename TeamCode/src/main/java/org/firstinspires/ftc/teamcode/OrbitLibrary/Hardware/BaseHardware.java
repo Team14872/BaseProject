@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.OrbitLibrary.Hardware;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-public abstract class BaseHardware<T> {
+public abstract class BaseHardware {
 
     protected String name;
 

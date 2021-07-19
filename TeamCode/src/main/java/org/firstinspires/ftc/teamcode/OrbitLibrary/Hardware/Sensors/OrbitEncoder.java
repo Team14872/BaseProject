@@ -1,13 +1,14 @@
 package org.firstinspires.ftc.teamcode.OrbitLibrary.Hardware.Sensors;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.OrbitLibrary.Util.Clock;
 
 public class OrbitEncoder extends BaseSensor<DcMotor> {
 
-    private DcMotor motor;
+    private DcMotorEx motor;
     private final double ticksPerRev;
 
     private int lastTime = 0;
@@ -19,15 +20,12 @@ public class OrbitEncoder extends BaseSensor<DcMotor> {
     protected double acceleration; //ticks/s^2
 
 
-    public OrbitEncoder(String name, double ticksPerRev) {
+    public OrbitEncoder(String name, double ticksPerRev, DcMotorEx motor) {
         super(name);
+        this.motor = motor;
         this.ticksPerRev = ticksPerRev;
     }
 
-    @Override
-    public void init(HardwareMap hwMap) {
-        motor = hwMap.get(DcMotor.class, name);
-    }
 
     @Override
     public void update() {
@@ -40,5 +38,10 @@ public class OrbitEncoder extends BaseSensor<DcMotor> {
         lastTime = time;
         lastPosition = position;
         lastVelocity = velocity;
+    }
+
+    @Override
+    public void init(HardwareMap hwMap) {
+
     }
 }

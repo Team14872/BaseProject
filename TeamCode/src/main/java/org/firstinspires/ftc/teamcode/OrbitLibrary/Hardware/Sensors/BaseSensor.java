@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.OrbitLibrary.Hardware.BaseHardware;
 
-public abstract class BaseSensor<T> extends BaseHardware<T> {
+public abstract class BaseSensor<T> extends BaseHardware {
 
     public BaseSensor(String name) {
         super(name);
